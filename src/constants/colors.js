@@ -1,7 +1,7 @@
 const G = {
-  crimson: "#A5001A",
-  crimsonDark: "#7A0013",
-  crimsonLight: "#C41E3A",
+  crimson: "#C41E1E",
+  crimsonDark: "#991212",
+  crimsonLight: "#E83434",
   gold: "#C9A84C",
   goldLight: "#E8D5A3",
   goldDark: "#A8882E",

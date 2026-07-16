@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import G from "../constants/colors";
-import { PAGE_IMAGES } from "../asset";
 import Icon from "../components/Icon";
+import HeroIllustration from "../components/HeroIllustration";
 
 const EnquireModal = ({ product, onClose }) => (
   <div className="modal-overlay" onClick={onClose}>
@@ -284,7 +284,7 @@ const HomePage = ({
 
       {/* Hero */}
       <section
-        className="hero-gradient"
+        className="hero-gradient grain-overlay"
         style={{
           minHeight: "100vh",
           display: "flex",
@@ -444,17 +444,26 @@ const HomePage = ({
               justifyContent: "center",
             }}
           >
-            <div style={{ position: "relative", width: "100%" }}>
+            <div
+              style={{
+                position: "relative",
+                width: "100%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
               <div
                 style={{
                   background:
-                    "linear-gradient(135deg, rgba(165,0,26,0.1), rgba(201,168,76,0.05))",
+                    "linear-gradient(135deg, rgba(196,30,30,0.06), rgba(201,168,76,0.03))",
                   borderRadius: 24,
-                  padding: "40px 32px 60px",
-                  border: "1px solid rgba(201,168,76,0.15)",
+                  padding: "36px 28px 48px",
+                  border: "1px solid rgba(196,30,30,0.12)",
                   textAlign: "center",
                   position: "relative",
                   overflow: "hidden",
+                  width: "100%",
                 }}
               >
                 <div
@@ -462,62 +471,11 @@ const HomePage = ({
                     position: "absolute",
                     inset: 0,
                     background:
-                      "radial-gradient(circle at 50% 50%, rgba(201,168,76,0.06), transparent 70%)",
+                      "radial-gradient(circle at 50% 50%, rgba(196,30,30,0.05), transparent 70%)",
                     pointerEvents: "none",
                   }}
                 />
-                <img
-                  src={PAGE_IMAGES.homeHeroTv.src}
-                  alt={PAGE_IMAGES.homeHeroTv.alt}
-                  style={{
-                    width: "100%",
-                    maxWidth: 480,
-                    height: "auto",
-                    borderRadius: 12,
-                    position: "relative",
-                    zIndex: 1,
-                  }}
-                  onError={(e) => {
-                    e.target.style.display = "none";
-                  }}
-                />
-              </div>
-              <div
-                className="glass"
-                style={{
-                  position: "absolute",
-                  bottom: -20,
-                  left: "50%",
-                  transform: "translateX(-50%)",
-                  borderRadius: 14,
-                  padding: "12px 24px",
-                  whiteSpace: "nowrap",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 16,
-                  zIndex: 2,
-                }}
-              >
-                <div
-                  style={{
-                    width: 8,
-                    height: 8,
-                    background: G.crimson,
-                    borderRadius: "50%",
-                  }}
-                />
-                <span
-                  style={{
-                    fontWeight: 700,
-                    color: G.textPrimary,
-                    fontSize: 15,
-                  }}
-                >
-                  XOAS Horizon 65" QD-OLED
-                </span>
-                <span style={{ color: G.textSecondary, fontSize: 13 }}>
-                  from ₹1,79,999
-                </span>
+                <HeroIllustration />
               </div>
             </div>
           </div>
