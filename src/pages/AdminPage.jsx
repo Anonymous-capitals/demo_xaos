@@ -46,7 +46,7 @@ const AdminPage = ({
             style={{
               width: 64,
               height: 64,
-              background: `linear-gradient(135deg,${G.crimson},${G.gold})`,
+              background: G.crimson,
               borderRadius: 16,
               display: "flex",
               alignItems: "center",
@@ -58,7 +58,7 @@ const AdminPage = ({
           </div>
           <h2
             style={{
-              fontFamily: "'Playfair Display', serif",
+              fontFamily: "'Manrope', sans-serif",
               fontSize: 28,
               marginBottom: 6,
               fontWeight: 700,
@@ -187,7 +187,7 @@ const AdminPage = ({
               borderRadius: 8,
               cursor: "pointer",
               color: G.textSecondary,
-              fontFamily: "'Inter', sans-serif",
+              fontFamily: "'Manrope', sans-serif",
               fontWeight: 500,
             }}
           >

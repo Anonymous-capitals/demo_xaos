@@ -32,7 +32,7 @@ const ContactPage = ({ contact, setContact, showToast }) => {
             objectPosition: "center",
           }}
           onError={(e) => {
-            e.target.parentElement.style.background = `linear-gradient(135deg,${G.charcoal},#150A0F)`;
+            e.target.parentElement.style.background = `linear-gradient(135deg,${G.charcoal},#1F1415)`;
             e.target.style.display = "none";
           }}
         />
@@ -41,7 +41,7 @@ const ContactPage = ({ contact, setContact, showToast }) => {
             position: "absolute",
             inset: 0,
             background:
-              "linear-gradient(135deg, rgba(15,0,8,0.82), rgba(165,0,26,0.5))",
+              "linear-gradient(135deg, rgba(15,0,8,0.82), rgba(178,30,53,0.5))",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -53,17 +53,17 @@ const ContactPage = ({ contact, setContact, showToast }) => {
           <div
             className="section-tag"
             style={{
-              background: "rgba(201, 168, 76, 0.15)",
-              color: G.goldLight,
+              background: "rgba(178, 30, 53, 0.18)",
+              color: "rgba(255,255,255,0.9)",
               marginBottom: 16,
             }}
           >
-            <Icon name="mail" size={13} color={G.goldLight} /> Get In
+            <Icon name="mail" size={13} color="rgba(255,255,255,0.9)" /> Get In
             Touch
           </div>
           <h2
             style={{
-              fontFamily: "'Playfair Display', serif",
+              fontFamily: "'Manrope', sans-serif",
               fontSize: "clamp(42px, 6vw, 72px)",
               color: "white",
               lineHeight: 1,
@@ -90,7 +90,7 @@ const ContactPage = ({ contact, setContact, showToast }) => {
       <div
         style={{
           padding: "80px 32px",
-          maxWidth: 1280,
+          maxWidth: 1400,
           margin: "0 auto",
         }}
       >
@@ -104,18 +104,18 @@ const ContactPage = ({ contact, setContact, showToast }) => {
           className="grid-2"
         >
           <div>
-            <div
-              style={{
-                background: `linear-gradient(135deg, ${G.crimson}, ${G.crimsonDark})`,
-                borderRadius: 20,
-                padding: 40,
+<div
+            style={{
+              background: `linear-gradient(135deg, ${G.crimson}, ${G.crimsonDark})`,
+              borderRadius: 18,
+              padding: 40,
                 color: "white",
                 marginBottom: 28,
               }}
             >
               <h3
                 style={{
-                  fontFamily: "'Playfair Display', serif",
+                  fontFamily: "'Manrope', sans-serif",
                   fontSize: 28,
                   marginBottom: 8,
                   fontWeight: 700,
@@ -235,7 +235,7 @@ const ContactPage = ({ contact, setContact, showToast }) => {
             style={{
               background: "white",
               border: `1px solid ${G.border}`,
-              borderRadius: 20,
+              borderRadius: 18,
               padding: 40,
             }}
           >

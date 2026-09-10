@@ -42,7 +42,7 @@ const StaticMap = () => {
         <circle cx="400" cy="127" r="11" fill="white" />
         <circle cx="400" cy="127" r="6" fill={G.crimson} />
         <rect x="310" y="55" width="180" height="34" rx="8" fill="white" filter="drop-shadow(0 2px 6px rgba(0,0,0,0.15))" />
-        <text x="400" y="77" textAnchor="middle" fontFamily="'Inter',sans-serif" fontWeight="700" fontSize="13" fill={G.crimson}>XOAS — West Bengal</text>
+        <text x="400" y="77" textAnchor="middle" fontFamily="'Manrope',sans-serif" fontWeight="700" fontSize="13" fill={G.crimson}>XOAS — West Bengal</text>
         <rect x="292" y="184" width="216" height="24" rx="6" fill="white" opacity="0.9" />
         <text x="400" y="200" textAnchor="middle" fontFamily="Inter,sans-serif" fontSize="11" fill={G.textSecondary}>23°13'34.5"N &nbsp; 88°21'29.8"E</text>
       </svg>
@@ -64,7 +64,7 @@ const StaticMap = () => {
           display: "flex",
           alignItems: "center",
           gap: 6,
-          boxShadow: "0 4px 12px rgba(165,0,26,0.4)",
+          boxShadow: "0 4px 12px rgba(178,30,53,0.4)",
         }}
       >
         <Icon name="map" size={14} color="white" /> Open in Google Maps

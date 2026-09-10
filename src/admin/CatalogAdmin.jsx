@@ -48,7 +48,7 @@ const CatalogAdmin = ({ products, setProducts, showToast, setViewProduct, editId
   return (
     <div>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 24, flexWrap: "wrap", gap: 12 }}>
-        <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 32, fontWeight: 700, color: G.textPrimary }}>
+        <h2 style={{ fontFamily: "'Manrope', sans-serif", fontSize: 32, fontWeight: 700, color: G.textPrimary }}>
           Catalog ({products.length})
         </h2>
         <button className="btn-primary" onClick={() => { setShowForm(!showForm); setEditId(null); setForm(blankForm); }} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 14, padding: "12px 24px" }}>
@@ -88,7 +88,7 @@ const CatalogAdmin = ({ products, setProducts, showToast, setViewProduct, editId
               <Icon name="image" size={18} color={G.crimson} /> Product Image
             </div>
             <div style={{ display: "flex", gap: 20, alignItems: "flex-start", flexWrap: "wrap" }}>
-              <div style={{ width: 140, height: 100, background: "linear-gradient(135deg,#F5F3F0,#EDE9E5)", borderRadius: 12, display: "flex", alignItems: "center", justifyContent: "center", border: `2px solid ${G.border}`, flexShrink: 0, overflow: "hidden" }}>
+              <div style={{ width: 140, height: 100, background: "linear-gradient(135deg,#F5F2EC,#E8E3DA)", borderRadius: 12, display: "flex", alignItems: "center", justifyContent: "center", border: `2px solid ${G.border}`, flexShrink: 0, overflow: "hidden" }}>
                 {form.imageUrl ? (
                   <img src={form.imageUrl} alt="preview" style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }} />
                 ) : (
@@ -129,7 +129,7 @@ const CatalogAdmin = ({ products, setProducts, showToast, setViewProduct, editId
               {products.map((p) => (
                 <tr key={p.id}>
                   <td>
-                    <div style={{ width: 56, height: 40, background: "linear-gradient(135deg,#F5F3F0,#EDE9E5)", borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", cursor: "pointer" }} onClick={() => setViewProduct(p)}>
+                    <div style={{ width: 56, height: 40, background: "linear-gradient(135deg,#F5F2EC,#E8E3DA)", borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", cursor: "pointer" }} onClick={() => setViewProduct(p)}>
                       {p.imageUrl ? (
                         <img src={p.imageUrl} alt={p.name} style={{ width: "100%", height: "100%", objectFit: "contain" }} />
                       ) : (
@@ -163,7 +163,7 @@ const CatalogAdmin = ({ products, setProducts, showToast, setViewProduct, editId
                         <Icon name="edit" size={16} color={G.crimson} />
                       </button>
                       <button title="Delete" onClick={() => handleDelete(p.id)} style={{ background: "none", border: "none", cursor: "pointer", padding: 6 }}>
-                        <Icon name="trash" size={16} color="#EF4444" />
+                        <Icon name="trash" size={16} color="#B21E35" />
                       </button>
                     </div>
                   </td>

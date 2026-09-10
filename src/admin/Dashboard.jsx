@@ -4,20 +4,20 @@ import Icon from "../components/Icon";
 const Dashboard = ({ products, setProducts, showToast, setViewProduct }) => {
   const dashStats = [
     { label: "Total Products", val: products.length, sub: "+3 this month", color: G.crimson },
-    { label: "Revenue (MTD)", val: "3.2L", sub: "+18% vs last month", color: "#059669" },
-    { label: "In Stock", val: products.filter(p => p.stock === "In Stock").length, sub: "Available now", color: "#2563EB" },
-    { label: "Limited / Pre-order", val: products.filter(p => p.stock === "Limited" || p.stock === "Pre-order").length, sub: "Low availability", color: "#D97706" },
+    { label: "Revenue (MTD)", val: "3.2L", sub: "+18% vs last month", color: G.success },
+    { label: "In Stock", val: products.filter(p => p.stock === "In Stock").length, sub: "Available now", color: G.charcoal },
+    { label: "Limited / Pre-order", val: products.filter(p => p.stock === "Limited" || p.stock === "Pre-order").length, sub: "Low availability", color: G.goldDark },
   ];
 
   return (
     <div>
-      <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 32, fontWeight: 700, marginBottom: 24, color: G.textPrimary }}>
+      <h2 style={{ fontFamily: "'Manrope', sans-serif", fontSize: 32, fontWeight: 700, marginBottom: 24, color: G.textPrimary }}>
         Dashboard
       </h2>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(200px,1fr))", gap: 20, marginBottom: 32 }}>
         {dashStats.map((s) => (
           <div key={s.label} className="card-hover" style={{ background: "white", border: `1px solid ${G.border}`, borderRadius: 14, padding: 24 }}>
-            <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 36, color: s.color, lineHeight: 1, fontWeight: 700 }}>{s.val}</div>
+            <div style={{ fontFamily: "'Manrope', sans-serif", fontSize: 36, color: s.color, lineHeight: 1, fontWeight: 700 }}>{s.val}</div>
             <div style={{ fontWeight: 600, fontSize: 14, marginTop: 6, color: G.textPrimary }}>{s.label}</div>
             <div style={{ fontSize: 12, color: G.textTertiary, marginTop: 4 }}>{s.sub}</div>
           </div>
@@ -45,7 +45,7 @@ const Dashboard = ({ products, setProducts, showToast, setViewProduct }) => {
               {products.slice(0, 6).map((p) => (
                 <tr key={p.id}>
                   <td>
-                    <div style={{ width: 48, height: 36, background: "linear-gradient(135deg,#F5F3F0,#EDE9E5)", borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
+                    <div style={{ width: 48, height: 36, background: "linear-gradient(135deg,#F5F2EC,#E8E3DA)", borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
                       {p.imageUrl ? (
                         <img src={p.imageUrl} alt={p.name} style={{ width: "100%", height: "100%", objectFit: "contain" }} />
                       ) : (

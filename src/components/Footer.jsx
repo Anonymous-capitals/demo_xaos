@@ -9,7 +9,7 @@ const Footer = ({ navItems, go }) => (
       padding: "80px 32px 32px",
     }}
   >
-    <div style={{ maxWidth: 1280, margin: "0 auto" }}>
+    <div style={{ maxWidth: 1400, margin: "0 auto" }}>
       <div
         style={{
           display: "grid",
@@ -32,7 +32,7 @@ const Footer = ({ navItems, go }) => (
               style={{
                 width: 40,
                 height: 40,
-                background: `linear-gradient(135deg, ${G.crimson}, ${G.gold})`,
+                background: G.crimson,
                 borderRadius: 10,
                 display: "flex",
                 alignItems: "center",
@@ -41,7 +41,7 @@ const Footer = ({ navItems, go }) => (
             >
               <span
                 style={{
-                  fontFamily: "'Playfair Display', serif",
+                  fontFamily: "'Manrope', sans-serif",
                   color: "white",
                   fontSize: 20,
                   fontWeight: 700,
@@ -53,7 +53,7 @@ const Footer = ({ navItems, go }) => (
             <div>
               <div
                 style={{
-                  fontFamily: "'Playfair Display', serif",
+                  fontFamily: "'Manrope', sans-serif",
                   fontSize: 24,
                   color: "white",
                   letterSpacing: 1,
@@ -130,7 +130,7 @@ const Footer = ({ navItems, go }) => (
               letterSpacing: 2,
               textTransform: "uppercase",
               marginBottom: 20,
-              color: G.goldLight,
+              color: "rgba(255,255,255,0.75)",
             }}
           >
             Quick Links
@@ -162,7 +162,7 @@ const Footer = ({ navItems, go }) => (
               letterSpacing: 2,
               textTransform: "uppercase",
               marginBottom: 20,
-              color: G.goldLight,
+              color: "rgba(255,255,255,0.75)",
             }}
           >
             Products
@@ -191,7 +191,7 @@ const Footer = ({ navItems, go }) => (
               letterSpacing: 2,
               textTransform: "uppercase",
               marginBottom: 20,
-              color: G.goldLight,
+              color: "rgba(255,255,255,0.75)",
             }}
           >
             Contact
@@ -248,7 +248,7 @@ const Footer = ({ navItems, go }) => (
           style={{
             opacity: 0.4,
             fontSize: 12,
-            color: G.goldLight,
+            color: "rgba(255,255,255,0.75)",
             fontWeight: 500,
           }}
         >

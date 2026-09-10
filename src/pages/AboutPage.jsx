@@ -21,7 +21,7 @@ const AboutPage = () => (
           objectPosition: "center 30%",
         }}
         onError={(e) => {
-          e.target.parentElement.style.background = `linear-gradient(135deg,${G.charcoal},#150A0F)`;
+          e.target.parentElement.style.background = `linear-gradient(135deg,${G.charcoal},#1F1415)`;
           e.target.style.display = "none";
         }}
       />
@@ -30,7 +30,7 @@ const AboutPage = () => (
           position: "absolute",
           inset: 0,
           background:
-            "linear-gradient(135deg, rgba(15,0,8,0.82), rgba(165,0,26,0.45))",
+            "linear-gradient(135deg, rgba(15,0,8,0.82), rgba(178,30,53,0.45))",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -42,16 +42,16 @@ const AboutPage = () => (
         <div
           className="section-tag"
           style={{
-            background: "rgba(201, 168, 76, 0.15)",
-            color: G.goldLight,
+            background: "rgba(178, 30, 53, 0.18)",
+            color: "rgba(255,255,255,0.9)",
             marginBottom: 16,
           }}
         >
-          <Icon name="sparkle" size={13} color={G.goldLight} /> Who We Are
+          <Icon name="sparkle" size={13} color="rgba(255,255,255,0.9)" /> Who We Are
         </div>
         <h2
           style={{
-            fontFamily: "'Playfair Display', serif",
+            fontFamily: "'Manrope', sans-serif",
             fontSize: "clamp(48px, 7vw, 80px)",
             color: "white",
             lineHeight: 1,
@@ -83,14 +83,14 @@ const AboutPage = () => (
     <div
       style={{
         padding: "80px 32px",
-        maxWidth: 1280,
+        maxWidth: 1400,
         margin: "0 auto",
       }}
     >
       <div
         style={{
-          background: `linear-gradient(135deg, ${G.charcoal}, #150A0F)`,
-          borderRadius: 24,
+          background: G.charcoal,
+          borderRadius: 18,
           padding: "56px 48px",
           marginBottom: 64,
           display: "flex",
@@ -105,7 +105,7 @@ const AboutPage = () => (
             style={{
               width: 100,
               height: 100,
-              background: `linear-gradient(135deg, ${G.crimson}, ${G.gold})`,
+              background: G.crimson,
               borderRadius: 20,
               display: "flex",
               alignItems: "center",
@@ -115,7 +115,7 @@ const AboutPage = () => (
           >
             <span
               style={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: "'Manrope', sans-serif",
                 fontSize: 48,
                 color: "white",
                 fontWeight: 700,
@@ -138,7 +138,7 @@ const AboutPage = () => (
         <div style={{ flex: 1, minWidth: 280, maxWidth: 560 }}>
           <h3
             style={{
-              fontFamily: "'Playfair Display', serif",
+              fontFamily: "'Manrope', sans-serif",
               fontSize: 32,
               color: "white",
               marginBottom: 12,
@@ -170,9 +170,9 @@ const AboutPage = () => (
               <span
                 key={word}
                 style={{
-                  color: G.goldLight,
-                  fontFamily: "'Playfair Display', serif",
-                  fontSize: 18,
+                  color: "rgba(255,255,255,0.8)",
+                  fontFamily: "'Manrope', sans-serif",
+                  fontSize: 17,
                   fontWeight: 600,
                   opacity: 0.85,
                 }}
@@ -204,7 +204,7 @@ const AboutPage = () => (
             style={{
               background: "white",
               border: `1px solid ${G.border}`,
-              borderRadius: 20,
+              borderRadius: 18,
               padding: 32,
             }}
           >

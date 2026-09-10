@@ -1,5 +1,6 @@
 import G from "../constants/colors";
 import Icon from "./Icon";
+import { useState } from "react";
 
 const stockColor = (s) =>
   s === "In Stock"
@@ -10,12 +11,13 @@ const stockColor = (s) =>
     ? "badge-blue"
     : "badge-crimson";
 
-const ProductModal = ({ product, allProducts, onClose, setViewProduct, showToast }) => {
+const ProductModal = ({ product, allProducts, onClose, setViewProduct, showToast, onAddToCart, onOrderNow }) => {
   const similar = allProducts
     ? allProducts
         .filter((p) => p.family === product.family && p.id !== product.id)
         .slice(0, 3)
     : [];
+  const [qty, setQty] = useState(1);
 
   return (
     <div className="modal-overlay" onClick={onClose}>
@@ -30,7 +32,7 @@ const ProductModal = ({ product, allProducts, onClose, setViewProduct, showToast
         >
           <h3
             style={{
-              fontFamily: "'Playfair Display', serif",
+              fontFamily: "'Manrope', sans-serif",
               fontSize: 22,
               letterSpacing: 0.5,
             }}
@@ -63,7 +65,7 @@ const ProductModal = ({ product, allProducts, onClose, setViewProduct, showToast
         <div
           style={{
             margin: "24px 32px",
-            background: "linear-gradient(135deg, #F5F3F0, #EDE9E5)",
+            background: "linear-gradient(135deg, #F5F2EC, #E8E3DA)",
             borderRadius: 16,
             padding: "40px 32px",
             display: "flex",
@@ -137,11 +139,11 @@ const ProductModal = ({ product, allProducts, onClose, setViewProduct, showToast
           {product.specs && (
             <div
               style={{
-                background: "rgba(165, 0, 26, 0.03)",
+                background: "rgba(178, 30, 53, 0.03)",
                 borderRadius: 12,
                 padding: "16px 20px",
                 marginBottom: 20,
-                border: "1px solid rgba(165, 0, 26, 0.06)",
+                border: "1px solid rgba(178, 30, 53, 0.06)",
               }}
             >
               <div
@@ -218,26 +220,27 @@ const ProductModal = ({ product, allProducts, onClose, setViewProduct, showToast
             ))}
           </div>
 
-          <div style={{ display: "flex", gap: 12, marginBottom: similar.length ? 24 : 0 }}>
-            <button
-              className="btn-primary"
-              style={{ flex: 1 }}
-              onClick={() => {
-                onClose();
-                showToast(`Enquiry sent for ${product.name}`);
-              }}
-            >
-              Send Enquiry
-            </button>
+          <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: similar.length ? 24 : 0 }}>
+            <div style={{ display: "flex", alignItems: "center", border: `1px solid ${G.border}`, borderRadius: 10, overflow: "hidden", flexShrink: 0 }}>
+              <button onClick={() => setQty((q) => Math.max(1, q - 1))} aria-label="Decrease quantity"
+                style={{ width: 38, height: 44, border: "none", background: "none", cursor: "pointer", fontSize: 18, color: G.textPrimary }}>−</button>
+              <span style={{ fontSize: 15, fontWeight: 700, minWidth: 30, textAlign: "center", color: G.textPrimary }}>{qty}</span>
+              <button onClick={() => setQty((q) => q + 1)} aria-label="Increase quantity"
+                style={{ width: 38, height: 44, border: "none", background: "none", cursor: "pointer", fontSize: 18, color: G.textPrimary }}>+</button>
+            </div>
             <button
               className="btn-secondary"
               style={{ flex: 1 }}
-              onClick={() => {
-                onClose();
-                setViewProduct(product);
-              }}
+              onClick={() => { onAddToCart(product, qty); showToast(`${product.name} added to cart`); }}
             >
-              <Icon name="arrow" size={16} color={G.crimson} /> Explore
+              Add to Cart
+            </button>
+            <button
+              className="btn-primary"
+              style={{ flex: 1 }}
+              onClick={() => { onOrderNow(product, qty); showToast(`${product.name} added to cart`); }}
+            >
+              Order Now
             </button>
           </div>
 
@@ -294,7 +297,7 @@ const ProductModal = ({ product, allProducts, onClose, setViewProduct, showToast
                         alignItems: "center",
                         justifyContent: "center",
                         marginBottom: 8,
-                        background: "linear-gradient(135deg, #F5F3F0, #EDE9E5)",
+                        background: "linear-gradient(135deg, #F5F2EC, #E8E3DA)",
                         borderRadius: 6,
                         overflow: "hidden",
                       }}

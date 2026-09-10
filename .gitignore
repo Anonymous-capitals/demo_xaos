@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+.vite/
+
+# Build output
+dist/
+
+# Test runner cache
+.playwright-mcp/
+
+# Env / local config
+*.local
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json

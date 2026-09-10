@@ -1,3 +1,4 @@
+import { useState } from "react";
 import G from "../constants/colors";
 import Icon from "../components/Icon";
 
@@ -10,7 +11,7 @@ const ProductCardSmall = ({ product, onView }) => (
     <div
       style={{
         height: 160,
-        background: "linear-gradient(135deg, #F5F3F0, #EDE9E5)",
+        background: "linear-gradient(135deg, #F5F2EC, #E8E3DA)",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -68,7 +69,7 @@ const ProductCardSmall = ({ product, onView }) => (
           {product.price}
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 3 }}>
-          <Icon name="star" size={11} color="#F59E0B" />
+          <Icon name="star" size={11} color="#C9A84C" />
           <span style={{ fontSize: 12, fontWeight: 600, color: G.textSecondary }}>
             {product.rating}
           </span>
@@ -78,7 +79,8 @@ const ProductCardSmall = ({ product, onView }) => (
   </div>
 );
 
-const ProductPage = ({ product, products, go, setViewProduct, showToast }) => {
+const ProductPage = ({ product, products, go, setViewProduct, showToast, onAddToCart, onOrderNow }) => {
+  const [qty, setQty] = useState(1);
   if (!product) {
     go("products");
     return null;
@@ -91,7 +93,7 @@ const ProductPage = ({ product, products, go, setViewProduct, showToast }) => {
   return (
     <div>
       <section style={{ padding: "120px 32px 60px", background: G.surface }}>
-        <div style={{ maxWidth: 1280, margin: "0 auto" }}>
+        <div style={{ maxWidth: 1400, margin: "0 auto" }}>
           <button
             onClick={() => go("products")}
             style={{
@@ -104,7 +106,7 @@ const ProductPage = ({ product, products, go, setViewProduct, showToast }) => {
               color: G.textSecondary,
               fontSize: 14,
               fontWeight: 500,
-              fontFamily: "'Inter', sans-serif",
+              fontFamily: "'Manrope', sans-serif",
               marginBottom: 36,
               padding: "8px 16px",
               borderRadius: 8,
@@ -134,7 +136,7 @@ const ProductPage = ({ product, products, go, setViewProduct, showToast }) => {
           >
             <div
               style={{
-                background: "linear-gradient(135deg, #F5F3F0, #EDE9E5)",
+                background: "linear-gradient(135deg, #F5F2EC, #E8E3DA)",
                 borderRadius: 24,
                 padding: "48px 40px",
                 display: "flex",
@@ -150,7 +152,7 @@ const ProductPage = ({ product, products, go, setViewProduct, showToast }) => {
                   position: "absolute",
                   inset: 0,
                   background:
-                    "radial-gradient(circle at 50% 50%, rgba(165,0,26,0.03), transparent 70%)",
+                    "radial-gradient(circle at 50% 50%, rgba(178,30,53,0.03), transparent 70%)",
                   pointerEvents: "none",
                 }}
               />
@@ -238,7 +240,7 @@ const ProductPage = ({ product, products, go, setViewProduct, showToast }) => {
               </span>
               <h1
                 style={{
-                  fontFamily: "'Playfair Display', serif",
+                  fontFamily: "'Manrope', sans-serif",
                   fontSize: "clamp(28px, 3.5vw, 42px)",
                   fontWeight: 700,
                   color: G.textPrimary,
@@ -288,11 +290,11 @@ const ProductPage = ({ product, products, go, setViewProduct, showToast }) => {
                     alignItems: "center",
                     gap: 6,
                     padding: "6px 14px",
-                    background: "rgba(245, 158, 11, 0.08)",
+                    background: "rgba(201, 168, 76, 0.14)",
                     borderRadius: 100,
                   }}
                 >
-                  <Icon name="star" size={16} color="#F59E0B" />
+                  <Icon name="star" size={16} color="#C9A84C" />
                   <span
                     style={{
                       fontWeight: 700,
@@ -311,11 +313,11 @@ const ProductPage = ({ product, products, go, setViewProduct, showToast }) => {
               {product.specs && (
                 <div
                   style={{
-                    background: "rgba(165, 0, 26, 0.03)",
+                    background: "rgba(178, 30, 53, 0.03)",
                     borderRadius: 14,
                     padding: "20px 24px",
                     marginBottom: 24,
-                    border: "1px solid rgba(165, 0, 26, 0.06)",
+                    border: "1px solid rgba(178, 30, 53, 0.06)",
                   }}
                 >
                   <div
@@ -387,19 +389,39 @@ const ProductPage = ({ product, products, go, setViewProduct, showToast }) => {
                 ))}
               </div>
 
+              <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 14 }}>
+                <div style={{ display: "flex", alignItems: "center", border: `1px solid ${G.border}`, borderRadius: 12, overflow: "hidden", flexShrink: 0 }}>
+                  <button onClick={() => setQty((q) => Math.max(1, q - 1))} aria-label="Decrease quantity"
+                    style={{ width: 46, height: 50, border: "none", background: "white", cursor: "pointer", fontSize: 20, color: G.textPrimary }}>−</button>
+                  <span style={{ fontSize: 16, fontWeight: 700, minWidth: 36, textAlign: "center", color: G.textPrimary }}>{qty}</span>
+                  <button onClick={() => setQty((q) => q + 1)} aria-label="Increase quantity"
+                    style={{ width: 46, height: 50, border: "none", background: "white", cursor: "pointer", fontSize: 20, color: G.textPrimary }}>+</button>
+                </div>
+                <button
+                  className="btn-primary"
+                  style={{
+                    flex: 1,
+                    padding: "15px 24px",
+                    fontSize: 15,
+                    justifyContent: "center",
+                  }}
+                  onClick={() => { onAddToCart(product, qty); showToast(`${product.name} added to cart`); }}
+                >
+                  <Icon name="cart" size={17} color="white" /> Add to Cart
+                </button>
+              </div>
               <button
-                className="btn-primary"
+                className="btn-secondary"
                 style={{
                   width: "100%",
-                  padding: "18px 36px",
-                  fontSize: 16,
+                  padding: "15px 24px",
+                  fontSize: 15,
                   justifyContent: "center",
+                  fontWeight: 700,
                 }}
-                onClick={() => {
-                  showToast(`Enquiry sent for ${product.name}`);
-                }}
+                onClick={() => { onOrderNow(product, qty); showToast(`${product.name} added to cart`); }}
               >
-                <Icon name="phone" size={18} color="white" /> Send Enquiry
+                Order Now
               </button>
               <p
                 style={{
@@ -430,7 +452,7 @@ const ProductPage = ({ product, products, go, setViewProduct, showToast }) => {
             background: G.surface,
           }}
         >
-          <div style={{ maxWidth: 1280, margin: "0 auto" }}>
+          <div style={{ maxWidth: 1400, margin: "0 auto" }}>
             <div
               style={{
                 borderTop: `1px solid ${G.border}`,
@@ -450,7 +472,7 @@ const ProductPage = ({ product, products, go, setViewProduct, showToast }) => {
                     width: 36,
                     height: 36,
                     borderRadius: 10,
-                    background: `linear-gradient(135deg, ${G.crimson}, ${G.gold})`,
+                    background: G.crimson,
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
@@ -460,7 +482,7 @@ const ProductPage = ({ product, products, go, setViewProduct, showToast }) => {
                 </div>
                 <h3
                   style={{
-                    fontFamily: "'Playfair Display', serif",
+                    fontFamily: "'Manrope', sans-serif",
                     fontSize: 24,
                     fontWeight: 700,
                     color: G.textPrimary,
